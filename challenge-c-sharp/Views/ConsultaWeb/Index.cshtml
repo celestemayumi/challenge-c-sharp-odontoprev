@@ -1,0 +1,28 @@
+﻿@model IEnumerable<challenge_c_sharp.Dtos.ConsultaDto>
+
+@{
+    ViewData["Title"] = "Consultas";
+    Layout = "_Layout";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Paciente</th>
+            <th>Dentista</th>
+            <th>Data da Consulta</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var consulta in Model)
+        {
+            <tr>
+                <td>@consulta.Paciente</td>
+                <td>@consulta.Dentista</td>
+                <td>@consulta.DataConsulta.ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>

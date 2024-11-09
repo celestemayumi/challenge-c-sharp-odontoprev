@@ -1,0 +1,40 @@
+﻿@model IEnumerable<challenge_c_sharp.Dtos.DentistaDto>
+
+@{
+    ViewData["Title"] = "Lista de Dentistas";
+    Layout = "_Layout";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a href="@Url.Action("Create", "DentistaWeb")" class="btn btn-primary">Novo Dentista</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CRO</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dentista in Model)
+        {
+            <tr>
+                <td>@dentista.Nome</td>
+                <td>@dentista.CRO</td>
+                <td>@dentista.Email</td>
+                <td>
+                    <a href="@Url.Action("Edit", "DentistaWeb", new { id = dentista.Id })" class="btn btn-warning">Editar</a>
+
+                    <form action="@Url.Action("Delete", "DentistaWeb", new { id = dentista.Id })" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Você tem certeza que deseja excluir esse dentista?');">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

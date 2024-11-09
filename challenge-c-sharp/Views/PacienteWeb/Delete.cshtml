@@ -1,0 +1,16 @@
+﻿@model challenge_c_sharp.Dtos.PacienteDto
+
+@{
+    ViewData["Title"] = "Excluir Paciente";
+    Layout = "_Layout";
+}
+
+<h1>Excluir Paciente</h1>
+
+<p>Tem certeza que deseja excluir o paciente "@Model.Nome"?</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="@Url.Action("Index", "PacienteWeb")" class="btn btn-secondary">Cancelar</a>
+</form>

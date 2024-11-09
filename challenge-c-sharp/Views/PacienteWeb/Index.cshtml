@@ -1,0 +1,39 @@
+﻿@model IEnumerable<challenge_c_sharp.Dtos.PacienteDto>
+
+@{
+    ViewData["Title"] = "Lista de Pacientes";
+    Layout = "_Layout";
+}
+
+<h1>Lista de Pacientes</h1>
+
+<p>
+    <a href="@Url.Action("Create", "PacienteWeb")" class="btn btn-primary">Adicionar Novo Paciente</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Gênero</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var paciente in Model)
+        {
+            <tr>
+                <td>@paciente.Nome</td>
+                <td>@paciente.Email</td>
+                <td>@paciente.Telefone</td>
+                <td>@paciente.GeneroDescricao</td>
+                <td>
+                    <a href="@Url.Action("Edit", "PacienteWeb", new { id = paciente.Id })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Delete", "PacienteWeb", new { id = paciente.Id })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

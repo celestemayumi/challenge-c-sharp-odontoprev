@@ -1,0 +1,16 @@
+﻿@model challenge_c_sharp.Dtos.EstadoDto
+
+@{
+    ViewData["Title"] = "Excluir Estado";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Tem certeza de que deseja excluir o estado <strong>@Model.Nome</strong>?</h3>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="@Url.Action("Index", "EstadoWeb")" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,58 @@
+﻿@model challenge_c_sharp.Dtos.EstadoDto
+
+@{
+    ViewData["Title"] = "Criar Estado";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form id="createForm">
+    <div class="form-group">
+        <label asp-for="Nome" class="control-label"></label>
+        <input asp-for="Nome" class="form-control" id="Nome" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Sigla" class="control-label"></label>
+        <input asp-for="Sigla" class="form-control" id="Sigla" />
+        <span asp-validation-for="Sigla" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="@Url.Action("Index", "EstadoWeb")" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <script>
+        // Evitar que o formulário seja submetido da maneira tradicional
+        $("#createForm").submit(function (e) {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            // Pegar os dados do formulário
+            var estado = {
+                Nome: $("#Nome").val(),
+                Sigla: $("#Sigla").val()
+            };
+
+            // Enviar a requisição AJAX
+            $.ajax({
+                url: '/Estado/Create',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(estado), 
+                success: function (response) {
+                    console.log('Estado criado com sucesso:', response);
+                    window.location.href = "/Estado"; 
+                },
+                error: function (xhr, status, error) {
+                    console.error('Erro ao criar estado:', xhr.responseText);
+                    console.log('Status:', xhr.status); 
+                    console.log('Status Text:', xhr.statusText); 
+                    alert('Erro ao criar estado: ' + xhr.responseText);
+                }
+
+            });
+        });
+    </script>
+}
+

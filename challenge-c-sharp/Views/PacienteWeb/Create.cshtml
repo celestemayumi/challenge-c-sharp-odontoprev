@@ -1,0 +1,38 @@
+﻿@model challenge_c_sharp.Dtos.PacienteDto
+
+@{
+    ViewData["Title"] = "Adicionar Paciente";
+    Layout = "_Layout";
+}
+
+<h1>Adicionar Paciente</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
+    </div>
+    <div class="form-group">
+        <label for="Nascimento">Data de Nascimento</label>
+        <input type="date" class="form-control" id="Nascimento" name="Nascimento" value="@Model.Nascimento.ToString("yyyy-MM-dd")" required />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required />
+    </div>
+    <div class="form-group">
+        <label for="Telefone">Telefone</label>
+        <input type="tel" class="form-control" id="Telefone" name="Telefone" value="@Model.Telefone" required />
+    </div>
+    <div class="form-group">
+        <label for="Genero">Gênero</label>
+        <select class="form-control" id="Genero" name="Genero">
+            <option value="1" @(Model.Genero == 1 ? "selected" : "")>Mulher</option>
+            <option value="2" @(Model.Genero == 2 ? "selected" : "")>Homem</option>
+            <option value="3" @(Model.Genero == 3 ? "selected" : "")>Não Definido</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+﻿@model challenge_c_sharp.Dtos.DentistaDto
+
+@{
+    ViewData["Title"] = "Excluir Dentista";
+    Layout = "_Layout";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>Tem certeza de que deseja excluir o dentista <strong>@Model.Nome</strong>?</p>
+
+<div>
+    <h4>Detalhes do Dentista</h4>
+    <ul>
+        <li><strong>Nome:</strong> @Model.Nome</li>
+        <li><strong>CRO:</strong> @Model.CRO</li>
+        <li><strong>Email:</strong> @Model.Email</li>
+        <li><strong>Telefone:</strong> @Model.Telefone</li>
+        <li><strong>Gênero:</strong> @Model.GeneroDescricao</li>
+        <li><strong>CPF:</strong> @Model.CPF</li>
+    </ul>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Sim, Excluir</button>
+    <a href="@Url.Action("Index", "DentistaWeb")" class="btn btn-secondary">Cancelar</a>
+</form>

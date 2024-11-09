@@ -1,0 +1,37 @@
+﻿@model IEnumerable<challenge_c_sharp.Dtos.EstadoDto>
+
+@{
+    ViewData["Title"] = "Lista de Estados";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Create", "EstadoWeb")" class="btn btn-primary">Criar Novo Estado</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Sigla</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estado in Model)
+        {
+            <tr>
+                <td>@estado.Id</td>
+                <td>@estado.Nome</td>
+                <td>@estado.Sigla</td>
+                <td>
+                    <a href="@Url.Action("Edit", "EstadoWeb", new { id = estado.Id })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Delete", "EstadoWeb", new { id = estado.Id })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

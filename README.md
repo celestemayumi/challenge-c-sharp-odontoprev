@@ -3,6 +3,9 @@
 ### Objetivo do projeto:
 Este projeto é voltado para a Odontoprev com o intuito de reduzir os sinistros, permitindo o gerenciamento de informações de pacientes e dentistas. O sistema oferece uma visão clara dos usuários, facilitando a consulta de dados e a verificação de consultas. Além disso, em breve, contará com uma inteligência artificial que analisará informações para classificar se um usuário é suspeito de fraude, ajudando as seguradoras a tomar decisões mais informadas e seguras.
 
+### O que há no projeto:
+Foi introduzida a interface para o usuário, onde há rotas bem definidas para a criação de novos pacientes, dentistas, unidades e a visualização de consultas. A aplicação ao ser executada abrirá um localhost e lá na navbar é possivel navegar pelas rotas, a única funcionalidade que não teve a implementação ainda é a IA que detecta dentistas e pacientes suspeitos.
+
 ### Escopo:
 A aplicação terá as seguintes funcionalidades:
 - Cadastro de Pacientes
@@ -36,11 +39,12 @@ Este projeto foi desenvolvido utilizando o conceito de **Clean Architecture** pa
 - **C#**: Linguagem de programação utilizada
 - **Entity Framework Core**: Utilizado para manipulação do banco de dados
 - **Oracle**: Banco de dados utilizado para a persistência dos dados
-- **Swagger**: Ferramenta de documentação interativa da API 
+- **ASP.NET Razor**: Interface com bootstrap
+
 
 ## Como executar o projeto:
 
-Essa aplicação utiliza o Swagger para a documentação e teste da API, ele é aberto automaticamente ao executar o programa.
+Essa aplicação ao executar o programa, abrirá em seu navegador padrão o localhost com a porta 7107
 
 ### 1. Clone o repositório ou faça o download do projeto:
 ```bash
@@ -60,9 +64,10 @@ dotnet restore
 dotnet run
 ```
 
-A aplicação irá abrir o navegador com o Swagger, caso não abra acesse:
+A aplicação irá abrir o navegador um localhost, caso não abra acesse:
 
-https://localhost:7107/swagger
+https://localhost:7107
+
 
 
   
